@@ -1,0 +1,83 @@
+{
+  "name": "daggerok.comxa.com",
+  "version": "0.0.1",
+  "description": "daggerok.comxa.com",
+  "main": "./src/main.js",
+  "scripts": {
+    "serve": "json-server ./dist/db.json -d 500 -w -p 3000 --static ./dist",
+    "prebuild": "npm run prewebpack && npm run clean",
+    "build": "NODE_ENV=production webpack --config ./config/webpack.config.production.babel.js -c --process -p",
+    "dev": "npm run webpack -- -w",
+    "start": "webpack-dev-server -d --config ./config/webpack.config.babel.js --content-base=./dist",
+    "webpack": "webpack --config ./config/webpack.config.babel.js -c --process",
+    "prewebpack": "npm i --no-optional",
+    "predev": "npm run prewebpack",
+    "clean": "rimraf -rf ./dist"
+  },
+  "pre-commit": [
+    "build"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://githuib.com/daggerok/daggerok.comxa.com/"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Maksim Kostromin",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "*",
+    "autoprefixer-loader": "*",
+    "babel-cli": "*",
+    "babel-loader": "*",
+    "babel-plugin-add-module-exports": "*",
+    "babel-plugin-react-html-attrs": "*",
+    "babel-plugin-transform-class-properties": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "babel-preset-stage-0": "*",
+    "babel-register": "*",
+    "copy-webpack-plugin": "*",
+    "css-loader": "*",
+    "extract-text-webpack-plugin": "*",
+    "file-loader": "*",
+    "handlebars": "*",
+    "handlebars-loader": "*",
+    "html-webpack-plugin": "*",
+    "json-server": "*",
+    "less": "*",
+    "less-loader": "*",
+    "ncp": "*",
+    "npm-run-all": "*",
+    "opn-cli": "*",
+    "postcss-loader": "*",
+    "pre-commit": "*",
+    "rimraf": "*",
+    "source-map-loader": "*",
+    "style-loader": "*",
+    "stylus": "*",
+    "stylus-loader": "*",
+    "url-loader": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*"
+  },
+  "dependencies": {
+    "bootstrap": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-router": "*"
+  },
+  "babel": {
+    "presets": [
+      "stage-0",
+      "es2015",
+      "react"
+    ],
+    "plugins": [
+      "react-html-attrs",
+      "add-module-exports",
+      "transform-class-properties"
+    ]
+  }
+}
